@@ -1,0 +1,271 @@
+{
+  "info": {
+    "name": "SkillSync Hub API",
+    "description": "Complete API collection for SkillSync Hub - Collaborative Talent & Portfolio Sharing Platform",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@skillsynchub.com\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Get All Members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/members",
+              "host": ["{{base_url}}"],
+              "path": ["members"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Member by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/members/:id",
+              "host": ["{{base_url}}"],
+              "path": ["members", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "member_id_here",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Project Proposal",
+      "item": [
+        {
+          "name": "Get Project Proposal",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/proposal",
+              "host": ["{{base_url}}"],
+              "path": ["proposal"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project Proposal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated SkillSync Hub\",\n  \"description\": \"Updated description\",\n  \"objectives\": [\n    {\n      \"title\": \"Updated Objective 1\",\n      \"description\": \"Updated description 1\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/proposal",
+              "host": ["{{base_url}}"],
+              "path": ["proposal"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Collaboration Requests",
+      "item": [
+        {
+          "name": "Submit Collaboration Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"skill\": \"Web Development\",\n  \"projectIdea\": \"E-commerce platform\",\n  \"message\": \"Looking for a frontend developer to help build an e-commerce platform with React and Node.js.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/collab",
+              "host": ["{{base_url}}"],
+              "path": ["collab"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Collaboration Requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/collab",
+              "host": ["{{base_url}}"],
+              "path": ["collab"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Collaboration Request Status",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"approved\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/collab/:id",
+              "host": ["{{base_url}}"],
+              "path": ["collab", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "request_id_here",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Collaboration Request",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/collab/:id",
+              "host": ["{{base_url}}"],
+              "path": ["collab", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "request_id_here",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Contact Messages",
+      "item": [
+        {
+          "name": "Submit Contact Form",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane@example.com\",\n  \"subject\": \"General Inquiry\",\n  \"message\": \"I'd like to learn more about the SkillSync Hub platform.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/contact",
+              "host": ["{{base_url}}"],
+              "path": ["contact"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Contact Messages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/contact",
+              "host": ["{{base_url}}"],
+              "path": ["contact"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

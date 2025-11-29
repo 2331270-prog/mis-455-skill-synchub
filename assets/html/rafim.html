@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Profile </title>
+  <style>
+    body{
+      font-family: 'Poppins', sans-serif;
+      margin:0;
+      background: linear-gradient(135deg, #f7f7f7, #eaeaea);
+      color:#333;
+    }
+    .container{
+      max-width:950px;
+      margin:40px auto;
+      background:#ffffff;
+      border-radius:18px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.08);
+      overflow:hidden;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .container:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+    header{
+      display:flex;
+      gap:25px;
+      align-items:center;
+      padding:36px;
+      background:#f5f5f5;
+      color:#222;
+    }
+    img.photo{
+      width:150px;
+      height:150px;
+      object-fit:cover;
+      border-radius:50%;
+      border:3px solid #ddd;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    .intro{flex:1}
+    h1{margin:0;font-size:30px;letter-spacing:.5px; color:#222;}
+    p.role{margin:8px 0 0;font-weight:600;font-size:18px; color:#444;}
+    p.loc{margin:6px 0 0;font-size:15px; color:#555;}
+
+    .content{
+      display:flex;
+      flex-wrap:wrap;
+      padding:28px 36px;
+      gap:30px;
+    }
+    .left{flex:2;min-width:300px;}
+    .right{flex:1;min-width:250px;}
+    section{margin-bottom:24px;}
+    h2{
+      margin:0 0 12px;
+      font-size:18px;
+      color:#222;
+      border-left:4px solid #ccc;
+      padding-left:10px;
+    }
+    p.meta, li, .contact{font-size:15px;line-height:1.6; color:#333;}
+    ul{margin:0;padding-left:20px;}
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .chip{
+      background:#e0e0e0;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:500;
+      color:#333;
+      box-shadow:0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .contact a{color:#333;text-decoration:none;}
+    .contact a:hover{text-decoration:underline;}
+
+    footer{
+      padding:18px 24px;
+      border-top:1px solid #ddd;
+      background:#f9f9f9;
+      text-align:center;
+      font-size:14px;
+      color:#555;
+    }
+
+    @media(max-width:700px){
+      header{flex-direction:column;align-items:center;text-align:center;}
+      img.photo{width:130px;height:130px;}
+      .content{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img class="photo" src="../picture/image_9.png" alt="Your Photo">
+      <div class="intro">
+        <h1>Md. Ashraful Haque</h1>
+        <p class="role">SQA (Software Quality Assurance) Engineer</p>
+        <p class="loc">Dhaka, Bangladesh • Available for Remote & Onsite Roles</p>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="left">
+        <section>
+          <h2>Experience</h2>
+          <ul>
+            <li><strong>University Project</strong> — Academic Project (2022-2025)
+              <div class="meta">Developed and tested a software project as part of a university assignment, ensuring functionality and performance through manual test cases.</div>
+            </li>
+            <li><strong>Online Course on SQA</strong> — Ostad Platform (2025)
+              <div class="meta">Completed hands-on online course covering SDLC, STLC, defect tracking, and API testing with Postman and JIRA.</div>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <ul>
+            <li><strong>Bachelor in Computer Science (SQA Focus)</strong> — Independent University,Bangladesh</li>
+            <li><strong>Relevant Courses:</strong> Software Testing, SDLC, Database Management</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Skills & Tools</h2>
+          <div class="skills">
+            <span class="chip">Manual Testing</span>
+            <span class="chip">Test Case Design</span>
+            <span class="chip">JIRA</span>
+            <span class="chip">Postman</span>
+            <span class="chip">Selenium (Basic)</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Git</span>
+            <span class="chip">HTML/CSS</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Achievements</h2>
+          <ul>
+            <li>Reduced testing time by 20% with efficient test case reuse.</li>
+            <li>Identified major UI and API bugs before production deployment.</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="right">
+        <section>
+          <h2>Contact</h2>
+          <div class="contact">
+            <div>Email: <a href="ashhaquerafim@gmail.com">ashhaquerafim@gmail.com</a></div>
+            <div>Phone: +8801946363704</div>
+            <div>GitHub: <a href="https://github.com/ash-haque">https://github.com/ash-haque</a></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Certifications</h2>
+          <ul>
+            <li>Ostad Platform — SQA Course</li>
+            <li>Project Champion — Arduino Car Project</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Languages</h2>
+          <ul>
+            <li>Bengali — Native</li>
+            <li>Hindi </li>
+            <li>English — Professional</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Availability</h2>
+          <p class="meta">Open to full-time, part-time, and remote opportunities starting <strong>Immediately</strong>.</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <small>© 2025 Md. Ashraful Haque  </small>
+    </footer>
+  </div>
+</body>
+</html>
+
+

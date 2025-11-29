@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f4f8 50%, #f0e8ff 100%);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        nav button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        nav button:hover {
+            background: linear-gradient(135deg, #ee5a6f 0%, #ff6b6b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Main Section */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            justify-content: space-between;
+        }
+
+        .main-content {
+            flex: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .main-content span {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .button {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button button {
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button button:first-child {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .button button:first-child:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .button button:last-child {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .button button:last-child:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            border: 5px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #667eea, #764ba2, #f093fb) border-box;
+        }
+
+        .image img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background: white;
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(135deg, #667eea, #764ba2, #f093fb) 1;
+        }
+
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .experience-item:hover::before {
+            opacity: 1;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-item .company {
+            font-size: 1.1rem;
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-item .duration {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-item .description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-item ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            color: #555;
+            position: relative;
+        }
+
+        .experience-item ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Skills & Tools Section */
+        .skills-section {
+            background: white;
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(135deg, #667eea, #764ba2, #f093fb) 1;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            color: #2c3e50;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        /* Languages Section */
+        .languages-section {
+            background: white;
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .languages-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, #667eea, #764ba2, #f093fb) 1;
+        }
+
+        .languages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .languages-list li {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            padding: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .languages-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .languages-list li:hover {
+            color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .languages-list li strong {
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .main-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-content span {
+                font-size: 2.5rem;
+            }
+
+            .main-content p {
+                text-align: left;
+            }
+
+            .button {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .image img {
+                max-width: 300px;
+            }
+
+            .experience-section {
+                padding: 40px 15px;
+                margin: 20px auto;
+            }
+
+            .experience-section h2 {
+                font-size: 2rem;
+            }
+
+            .experience-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .experience-item {
+                padding: 20px;
+            }
+
+            .skills-section {
+                padding: 40px 15px;
+                margin: 20px auto;
+            }
+
+            .skills-section h2 {
+                font-size: 2rem;
+            }
+
+            .skills-container {
+                gap: 10px;
+            }
+
+            .skill-tag {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .languages-section {
+                padding: 40px 15px;
+                margin: 20px auto;
+            }
+
+            .languages-section h2 {
+                font-size: 2rem;
+                padding-left: 15px;
+            }
+
+            .languages-list {
+                padding-left: 15px;
+            }
+
+            .languages-list li {
+                font-size: 1rem;
+                padding: 12px 0;
+                padding-left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div class="content">
+            <div class="main-content">
+                <h1>Hi! I Am</h1>
+                <span>Jannatul Ferdous Suzane.</span>
+                <p>I’m a passionate and dedicated web developer with a strong interest in building responsive and user-friendly websites. I enjoy turning complex problems into simple, beautiful, and intuitive designs. This portfolio showcases some of the projects I’ve worked on during my academic journey.Thank you for visiting my portfolio!</p>
+            </div>
+            <div class="image">
+                <img src="../picture/image-4.jpeg" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <div class="skills-section">
+        <h2>Skills & Tools</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Manual Testing</span>
+            <span class="skill-tag">Test Case Design</span>
+            <span class="skill-tag">JIRA</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">Selenium (Basic)</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">HTML/CSS</span>
+        </div>
+    </div>
+
+    <!-- Languages Section -->
+    <div class="languages-section">
+        <h2>Languages</h2>
+        <ul class="languages-list">
+            <li><strong>Bengali</strong> — Native</li>
+            <li><strong>Hindi</strong></li>
+            <li><strong>English</strong> — Professional</li>
+        </ul>
+    </div>
+
+    
+</body>
+</html>
